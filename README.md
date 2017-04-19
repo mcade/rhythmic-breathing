@@ -6,7 +6,7 @@
 Run the following command from the root of this project:
 
 ```bash
-elm-make Main.elm --output elm.js
+elm-make src/Main.elm --output elm.js
 ```
 
 Then open `index.html` in your browser!

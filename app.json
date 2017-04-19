@@ -2,7 +2,7 @@
     "name": "Rhythmic Breathing",
     "repository": "https://github.com/mcade/rhythmic-breathing",
     "env": {
-        "ELM_COMPILE": "elm make Main.elm --output elm.js"
+        "ELM_COMPILE": "elm make src/Main.elm --output elm.js"
     },
     "buildpacks": [
         {
