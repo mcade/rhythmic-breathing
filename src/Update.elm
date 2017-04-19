@@ -7,5 +7,8 @@ import Models exposing (Model)
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
+        Tick newTime ->
+            { model | timer = model.timer + 1 } ! []
+
         NoOp ->
             ( model, Cmd.none )

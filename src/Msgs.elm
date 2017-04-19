@@ -1,5 +1,8 @@
 module Msgs exposing (..)
 
+import Time exposing (Time)
+
 
 type Msg
-    = NoOp
+    = Tick Time
+    | NoOp

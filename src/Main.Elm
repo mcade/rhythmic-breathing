@@ -2,15 +2,18 @@ module Main exposing (..)
 
 
 import Html exposing (program)
-import Msgs exposing (Msg)
+import Msgs exposing (Msg(..))
 import Models exposing (Model)
 import Update exposing (update)
 import View exposing (view)
+import Time exposing (second)
 
 
 init : ( Model, Cmd Msg )
 init =
     { interval = 5
+    , isBreathing = False
+    , timer = 0
     }
     ! []
 
@@ -18,7 +21,8 @@ init =
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-    Sub.none
+    Time.every second Tick
+
 
 
 

@@ -14,4 +14,5 @@ view model =
         [ svg []
             [ circle [ cx "60", cy "60", r "50", fill "blue" ] []
             ]
+        , div [] [ model.timer |> toString |> text ]
         ]
