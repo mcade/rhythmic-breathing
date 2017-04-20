@@ -3,7 +3,7 @@ button,hr,input{overflow:visible}audio,canvas,progress,video{display:inline-bloc
 
 
 /* base styles */
-html, body {
+html, body, .container {
 	height: 100%;
     color: #212121;
     font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
@@ -12,11 +12,93 @@ html, body {
     letter-spacing: 0.02em;
 }
 
+.container {
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
-circle {
-	-webkit-animation: heartbeat 10s linear infinite both;
-	-moz-animation: heartbeat 10s linear infinite both;
-	animation: heartbeat 10s linear infinite both;
+.container > div {
+	flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+h1 {
+	margin: 0.1em 0;
+}
+
+.get-started {
+	margin: 1em;
+}
+
+.get-started div {
+	margin: 1em;
+	padding: 1em;
+	border: solid 1px black;
+}
+.get-started div:hover {
+	cursor: pointer;
+	background: lightgrey;
+}
+
+ol.instructions {
+	text-align: left;
+}
+
+.breathe-indicator {
+	height: 300px;
+	width: 300px;
+	margin: 1em 0;
+}
+
+.depth-control {
+	display: flex;
+	justify-content: center;
+}
+
+.depth-control .selected {
+	border: dashed 1px black;
+}
+
+.depth-control > div {
+	min-width: 62px;
+	margin: 2em .25em 0;
+	padding: 1em;
+	border: solid 1px black;
+	cursor: pointer;
+}
+
+.depth-control > div:hover {
+	background: lightgrey;
+}
+
+.heartbeat {
+	-webkit-animation: heartbeat linear infinite both;
+	-moz-animation: heartbeat linear infinite both;
+	animation: heartbeat linear infinite both;
+}
+
+.deep {
+	-webkit-animation-duration: 13.33s;
+	-moz-animation-duration: 13.33s;
+	animation-duration: 13.33s;
+}
+
+.deeper {
+	-webkit-animation-duration: 16s;
+	-moz-animation-duration: 16s;
+	animation-duration: 16s;
+}
+
+.deepest {
+	-webkit-animation-duration: 20s;
+	-moz-animation-duration: 20s;
+	animation-duration: 20s;
 }
 
 @-webkit-keyframes heartbeat {
@@ -53,20 +135,28 @@ circle {
 		-webkit-animation-timing-function:ease-out;
 		animation-timing-function:ease-out;
 	}
-	49.99% {
+	37.499% {
 		fill: blue;
 	}
-	50% {
+	37.5% {
 		-webkit-transform:scale(1);
 		transform:scale(1);
 		-webkit-animation-timing-function:ease-in;
 		animation-timing-function:ease-in;
 		fill: red;
 	}
-	99.99% {
+	74.99% {
 		fill: red;
 	}
-	to {
+	75% {
+		-webkit-transform:scale(.5);
+		transform:scale(.5);
+		-webkit-transform-origin:center center;
+		transform-origin:center center;
+		-webkit-animation-timing-function:ease-out;
+		animation-timing-function:ease-out;
+	}
+	100% {
 		-webkit-transform:scale(.5);
 		transform:scale(.5);
 		-webkit-transform-origin:center center;

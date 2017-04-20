@@ -8,7 +8,20 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         Tick newTime ->
-            { model | timer = model.timer + 1 } ! []
+            let
+                newModel =
+                    if model.isBreathing then
+                        { model | timer = model.timer + 1 }
+                    else
+                        model
+            in
+                newModel ! []
+
+        ChangeDepth depth ->
+            { model | depth = depth } ! []
+
+        StartBreathing ->
+            { model | isBreathing = True } ! []
 
         NoOp ->
             ( model, Cmd.none )
