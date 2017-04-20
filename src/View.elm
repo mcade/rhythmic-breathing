@@ -8,12 +8,36 @@ import Msgs exposing (Msg(..))
 import Models exposing (Model)
 
 
-pausedClass : Int -> String
-pausedClass timer =
-    if timer % 10 == 0 then
-        " paused"
-    else
-        ""
+timeInMinutes : Int -> String
+timeInMinutes elapsedTime =
+    let
+        min =
+            let
+                min =
+                    elapsedTime // 60
+            in
+                if min < 0 then
+                    0
+                else
+                    min
+
+        sec =
+            let
+                sec =
+                    elapsedTime - (min * 60)
+            in
+                if sec < 0 then
+                    0
+                else
+                    sec
+
+        secString =
+            if sec < 10 then
+                "0" ++ (toString sec)
+            else
+                toString sec
+    in
+        (toString min) ++ ":" ++ secString
 
 
 view : Model -> Html Msg
@@ -24,12 +48,12 @@ view model =
             [ a [ href "https://www.trainingjournal.com/articles/feature/control-your-physiology-and-improve-your-performance", target "_blank" ]
                 [ text "Control your physiology and improve your performance" ]
             ]
-        , div [ class <| "breathe-indicator" ++ (pausedClass model.timer) ]
+        , div [ class "breathe-indicator" ]
             [ svg [ viewBox "-50 -50 100 100" ]
                 [ circle [ SvgAttr.class "heartbeat", r "48.5", fill "blue" ] []
                 , circle [ r "24.25", stroke "blue", strokeWidth "0.5", fill "transparent" ] []
                 , circle [ r "48.75", stroke "red", strokeWidth "0.5", fill "transparent" ] []
                 ]
             ]
-        , div [] [ model.timer |> toString |> text ]
+        , div [] [ timeInMinutes model.timer |> text ]
         ]
