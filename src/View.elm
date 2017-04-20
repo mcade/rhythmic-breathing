@@ -59,7 +59,7 @@ depthControl depth =
     let
         depthBtn depthMsg depthText =
             if depth == depthMsg then
-                div [ onClick <| ChangeDepth depthMsg, class "selected" ] [ text depthText ]
+                div [ class "selected" ] [ text depthText ]
             else
                 div [ onClick <| ChangeDepth depthMsg ] [ text depthText ]
     in
