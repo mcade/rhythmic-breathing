@@ -1,6 +1,5 @@
 module Main exposing (..)
 
-
 import Html exposing (program)
 import Msgs exposing (Msg(..))
 import Models exposing (Model)
@@ -15,14 +14,12 @@ init =
     , isBreathing = False
     , timer = 0
     }
-    ! []
-
+        ! []
 
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Time.every second Tick
-
 
 
 
